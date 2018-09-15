@@ -4,6 +4,9 @@
     <select id="selectUser" resultType="cn.xc.entity.User">
     select * from user where id = #{id}
     </select>
+    <select id="selectAll" resultType="cn.xc.entity.User">
+        select * from user
+    </select>
     <insert id="addUser" parameterType="cn.xc.entity.User">
         insert into user(name,pwd) values (#{name },#{pwd})
     </insert>

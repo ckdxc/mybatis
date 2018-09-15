@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间,防止sql语句的id重名
+    namespace = 对应包名 + 对应类名
+-->
 <mapper namespace="cn.xc.entity.UserMapper">
-    <select id="selectUser" resultType="cn.xc.entity.User">
+    <!-- <select>中
+    id 必须唯一
+    resultType:返回值类型
+    parameterType:参数类型
+    userGeneratedKeys="true": 使用自增主键
+    -->
+    <select id="selectUser" resultType="User">
     select * from user where id = #{id}
     </select>
-    <insert id="addUser" parameterType="cn.xc.entity.User">
+    <select id="selectAll" resultType="User">
+        select * from user
+    </select>
+    <insert id="addUser" parameterType="User">
         insert into user(name,pwd) values (#{name },#{pwd})
     </insert>
-    <update id="updateUser" parameterType="cn.xc.entity.User">
+    <update id="updateUser" parameterType="User">
         update user set name =#{name },pwd=#{pwd} where id=#{id}
     </update>
     <delete id="deleteUser">

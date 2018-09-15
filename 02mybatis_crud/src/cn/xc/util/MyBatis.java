@@ -9,6 +9,11 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class MyBatis {
+    /**
+     * 通过配置文件创建SqlSessionFactory
+     * @return
+     * @throws IOException
+     */
     public static SqlSessionFactory getSqlSessionFactory() throws IOException {
         String resource = "mybatis.cfg.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
@@ -16,6 +21,11 @@ public class MyBatis {
         return sqlSessionFactory;
     }
 
+    /**
+     * SqlSession
+     * @return
+     * @throws IOException
+     */
     public static SqlSession getSqlSession() throws IOException {
         SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
         return sqlSessionFactory.openSession();

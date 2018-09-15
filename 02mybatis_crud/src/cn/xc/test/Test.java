@@ -4,6 +4,7 @@ import cn.xc.dao.UserDao;
 import cn.xc.entity.User;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Test {
     public static void main(String[] args) throws IOException {
@@ -13,6 +14,10 @@ public class Test {
 //        User user = userDao.getById(1);
 //        user.setPwd("newpwd");
 //        System.out.println(userDao.updateUser(user));
-        System.out.println(userDao.deleteUser(2));
+//        System.out.println(userDao.deleteUser(2));
+        List<User> users = userDao.getAll();
+        for (User user : users){
+            System.out.println(user);
+        }
     }
 }
